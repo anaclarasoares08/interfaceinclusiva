@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerta Idoso - Proteção Contra Golpes</title>
+    <style>
+        :root {
+            --bg-color: #FFF5F7;        
+            --text-color: #2D1A1E;      
+            --primary-color: #D81B60;   
+            --secondary-color: #C2185B; 
+            --alert-color: #C62828;     
+            --alert-bg: #FFEBEE;        
+            --card-bg: #FFFFFF;         
+            --font-size-base: 18px;     
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            font-size: var(--font-size-base);
+            transition: font-size 0.2s ease;
+        }
+
+        /* Barra de Acessibilidade Superior */
+        .barra-acessibilidade {
+            background-color: #4A1521; 
+            padding: 15px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .barra-acessibilidade span {
+            color: #FFE4EC;
+            font-weight: 700;
+        }
+
+        .btn-acessibilidade {
+            background-color: #FFFFFF;
+            color: #4A1521;
+            border: 3px solid #FF80AB;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 30px; 
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Botão de Áudio Destacado */
+        .btn-audio {
+            background-color: #FF80AB;
+            color: #4A1521;
+            border: 3px solid #FFFFFF;
+        }
+
+        .btn-acessibilidade:active {
+            background-color: #FFDEE9;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.3rem;
+            font-weight: 800;
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Alerta de Urgência */
+        .alerta-maximo {
+            background-color: var(--alert-bg);
+            border: 6px dashed var(--alert-color); 
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .alerta-maximo h2 {
+            color: var(--alert-color);
+            margin-top: 0;
+            font-size: 1.9rem;
+            font-weight: 800;
+        }
+
+        .sinal-atencao {
+            font-size: 3.5rem;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        /* Lista de Golpes */
+        .secao-golpes h2 {
+            border-bottom: 4px solid var(--primary-color);
+            padding-bottom: 12px;
+            color: var(--secondary-color);
+            font-size: 1.7rem;
+            font-weight: 700;
+        }
+
+        .card-golpe {
+            background-color: var(--card-bg);
+            border-left: 10px solid var(--primary-color); 
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(216, 27, 96, 0.06);
+        }
+
+        .card-golpe h3 {
+            margin-top: 0;
+            color: #880E4F; 
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        /* Seção de Denúncia e Explicação */
+        .secao-denuncia {
+            background-color: #FFF;
+            border: 3px solid #FF80AB;
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 40px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+        }
+
+        .secao-denuncia h2 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+
+        /* Botão SINESP */
+        .btn-sinesp {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #0D47A1; 
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12 rgba(13, 71, 161, 0.3);
+        }
+
+        .bloco-explicativo {
+            background-color: #F9F9F9;
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 5px solid #555;
+        }
+
+        /* Botão de Emergência 190 */
+        .btn-ajuda {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: #2E7D32; 
+            color: white;
+            text-align: center;
+            padding: 25px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 45px;
+            box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+            border: 3px solid #1B5E20;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            background-color: #F8E1E7;
+            color: #6A3E49;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barra-acessibilidade">
+        <span>ACESSIBILIDADE:</span>
+        <button class="btn-acessibilidade" onclick="mudarFonte(1)">Letra (+)</button>
+        <button class="btn-acessibilidade" onclick="mudarFonte(-1)">Letra (-)</button>
+        <button class="btn-acessibilidade btn-audio" onclick="alternarLeitura()">Ouvir Texto 🔊</button>
+    </div>
+
+    <header>
+        <h1>Proteção Contra Golpes</h1>
+        <p>Dicas simples e seguras para proteger o seu dia a dia.</p>
+    </header>
+
+    <main id="conteudo-leitura">
+        
+        <section class="alerta-maximo">
+            <span class="sinal-atencao" aria-hidden="true">⚠️ ATENÇÃO!</span>
+            <h2>O BANCO NUNCA PEDE A SUA SENHA!</h2>
+            <p>Se receber uma ligação de alguém dizendo que é do banco e essa pessoa pedir a sua senha, o seu cartão ou para fazer uma transferência: DESLIGUE O TELEFONE IMEDIATAMENTE! É um golpe.</p>
+        </section>
+
+        <section class="secao-golpes">
+            <h2>Conheça os Golpes Mais Comuns:</h2>
+
+            <div class="card-golpe">
+                <h3>1. Golpe do Falso Parente no WhatsApp</h3>
+                <p>Um número desconhecido manda mensagem fingindo ser seu filho ou neto, dizendo que precisa de dinheiro urgente.</p>
+                <p>O que fazer: Não envie dinheiro! Ligue para o número antigo do seu parente para confirmar.</p>
+            </div>
+
+            <div class="card-golpe">
+                <h3>2. Golpe das Mensagens com Links Falsos</h3>
+                <p>Chega um SMS dizendo que sua conta foi bloqueada ou que você ganhou um prêmio, com um link para clicar.</p>
+                <p>O que fazer: Nunca clique em links suspeitos. Apague a mensagem.</p>
+            </div>
+        </section>
+
+        <section class="secao-denuncia">
+            <h2>Registrar o Golpe / Denunciar</h2>
+            
+            <a href="https://delegaciavirtual.sinesp.gov.br/" target="_blank" class="btn-sinesp">💻 IR PARA A DELEGACIA VIRTUAL (SINESP)</a>
+
+            <div class="bloco-explicativo">
+                <h3>Qual a diferença entre os canais de denúncia?</h3>
+                <p>1. Delegacia Virtual (SINESP): É onde você deve registrar o Boletim de Ocorrência se você foi vítima de um golpe comum, como Pix falso ou golpe do WhatsApp. Esse sistema envia a sua denúncia direto para a Polícia Civil do seu Estado.</p>
+                
+                <p>2. Comunicação de Crimes da Polícia Federal (PF): A Polícia Federal não investiga golpes comuns contra pessoas físicas. Você só deve acionar a PF se o crime envolver órgãos federais, como fraudes contra a Caixa Econômica Federal, o INSS ou os Correios.</p>
+            </div>
+        </section>
+
+        <a href="tel:190" class="btn-ajuda">🚨 EM CASO DE EMERGÊNCIA: LIGAR 190</a>
+
+    </main>
+
+    <footer>
+        <p>Este site foi feito com carinho para ajudar a proteger você. Compartilhe com os seus amigos!</p>
+    </footer>
+
+    <script>
+        // Lógica de aumentar/diminuir fonte
+        let tamanhoAtual = 100; 
+        function mudarFonte(direcao) {
+            tamanhoAtual += (direcao * 15);
+            if (tamanhoAtual < 100) tamanhoAtual = 100;
+            if (tamanhoAtual > 200) tamanhoAtual = 200;
+            document.body.style.fontSize = tamanhoAtual + "%";
+        }
+
+        // Lógica de Leitura em Voz Alta (Speech Synthesis)
+        let lendo = false;
+        let sintese = window.speechSynthesis;
+        let expressao;
+
+        function alternarLeitura() {
+            const botaoAudio = document.querySelector('.btn-audio');
+
+            if (lendo) {
+                sintese.cancel();
+                botaoAudio.innerText = "Ouvir Texto 🔊";
+                lendo = false;
+            } else {
+                // Captura apenas o texto explicativo dentro da tag <main>
+                let textoParaLer = document.getElementById('conteudo-leitura').innerText;
+                
+                // Remove os emojis do texto falado para a leitura ficar mais natural
+                textoParaLer = textoParaLer.replace(/[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD00-\uDFFF]/g, '');
+
+                expressao = new SpeechSynthesisUtterance(textoParaLer);
+                expressao.lang = 'pt-BR';
+                expressao.rate = 0.9; // Velocidade um pouco mais lenta e clara para idosos
+
+                expressao.onend = function() {
+                    botaoAudio.innerText = "Ouvir Texto 🔊";
+                    lendo = false;
+                };
+
+                sintese.speak(expressao);
+                botaoAudio.innerText = "Parar Leitura 🛑";
+                lendo = true;
+            }
+        }
+    </script>
+
+</body>
+</html>
