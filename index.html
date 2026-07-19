@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,12 +9,12 @@
         :root {
             --bg-color: #FFF5F7;        
             --text-color: #2D1A1E;      
-            --primary-color: #D81B60;   
-            --secondary-color: #C2185B; 
-            --alert-color: #C62828;     
+            --primary-color: #D81B60;  
+            --secondary-color: #C2185B;
+            --alert-color: #C62828;    
             --alert-bg: #FFEBEE;        
-            --card-bg: #FFFFFF;         
-            --font-size-base: 18px;     
+            --card-bg: #FFFFFF;        
+            --font-size-base: 18px;    
         }
 
         body {
@@ -29,7 +30,7 @@
 
         /* Barra de Acessibilidade Superior */
         .barra-acessibilidade {
-            background-color: #4A1521; 
+            background-color: #4A1521;
             padding: 15px;
             text-align: center;
             position: sticky;
@@ -55,7 +56,7 @@
             padding: 10px 20px;
             font-weight: bold;
             cursor: pointer;
-            border-radius: 30px; 
+            border-radius: 30px;
             font-size: 16px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
@@ -100,7 +101,7 @@
         /* Alerta de Urgência */
         .alerta-maximo {
             background-color: var(--alert-bg);
-            border: 6px dashed var(--alert-color); 
+            border: 6px dashed var(--alert-color);
             border-radius: 16px;
             padding: 30px;
             margin-bottom: 35px;
@@ -131,7 +132,7 @@
 
         .card-golpe {
             background-color: var(--card-bg);
-            border-left: 10px solid var(--primary-color); 
+            border-left: 10px solid var(--primary-color);
             padding: 25px;
             margin-bottom: 25px;
             border-radius: 12px;
@@ -140,7 +141,7 @@
 
         .card-golpe h3 {
             margin-top: 0;
-            color: #880E4F; 
+            color: #880E4F;
             font-size: 1.4rem;
             font-weight: 700;
         }
@@ -165,7 +166,7 @@
             display: block;
             width: 100%;
             box-sizing: border-box;
-            background-color: #0D47A1; 
+            background-color: #0D47A1;
             color: white;
             text-align: center;
             padding: 20px;
@@ -189,7 +190,7 @@
             display: block;
             width: 100%;
             box-sizing: border-box;
-            background-color: #2E7D32; 
+            background-color: #2E7D32;
             color: white;
             text-align: center;
             padding: 25px;
@@ -228,7 +229,7 @@
     </header>
 
     <main id="conteudo-leitura">
-        
+       
         <section class="alerta-maximo">
             <span class="sinal-atencao" aria-hidden="true">⚠️ ATENÇÃO!</span>
             <h2>O BANCO NUNCA PEDE A SUA SENHA!</h2>
@@ -253,13 +254,13 @@
 
         <section class="secao-denuncia">
             <h2>Registrar o Golpe / Denunciar</h2>
-            
+           
             <a href="https://delegaciavirtual.sinesp.gov.br/" target="_blank" class="btn-sinesp">💻 IR PARA A DELEGACIA VIRTUAL (SINESP)</a>
 
             <div class="bloco-explicativo">
                 <h3>Qual a diferença entre os canais de denúncia?</h3>
                 <p>1. Delegacia Virtual (SINESP): É onde você deve registrar o Boletim de Ocorrência se você foi vítima de um golpe comum, como Pix falso ou golpe do WhatsApp. Esse sistema envia a sua denúncia direto para a Polícia Civil do seu Estado.</p>
-                
+               
                 <p>2. Comunicação de Crimes da Polícia Federal (PF): A Polícia Federal não investiga golpes comuns contra pessoas físicas. Você só deve acionar a PF se o crime envolver órgãos federais, como fraudes contra a Caixa Econômica Federal, o INSS ou os Correios.</p>
             </div>
         </section>
@@ -274,7 +275,7 @@
 
     <script>
         // Lógica de aumentar/diminuir fonte
-        let tamanhoAtual = 100; 
+        let tamanhoAtual = 100;
         function mudarFonte(direcao) {
             tamanhoAtual += (direcao * 15);
             if (tamanhoAtual < 100) tamanhoAtual = 100;
@@ -297,7 +298,7 @@
             } else {
                 // Captura apenas o texto explicativo dentro da tag <main>
                 let textoParaLer = document.getElementById('conteudo-leitura').innerText;
-                
+               
                 // Remove os emojis do texto falado para a leitura ficar mais natural
                 textoParaLer = textoParaLer.replace(/[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD00-\uDFFF]/g, '');
 
